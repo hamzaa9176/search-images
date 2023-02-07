@@ -9,7 +9,6 @@ import Loader from './components/Loader'
 
 function App() {
   const [data, setData] = useState([]);
-
   const [page, setPage] = useState(1);
 
   const[searchTerm, setSearchTerm] = useState('');
@@ -18,7 +17,8 @@ function App() {
 
  
 function getImage(searchTermm, pagee) {
-  if(searchTermm.length>0){
+  let active = true;
+  if(searchTermm.length>0&&active){
   
     axios
     .get(
@@ -26,12 +26,14 @@ function getImage(searchTermm, pagee) {
     )
     .then((response) => {
       setData(prev=>[...prev, ...response.data.photos.photo]);
+      active = false;
       //console.log(response.data.photos);
     })
     .catch((error) => {
       console.log("error fetching data", error);
     });
-  }else {
+   }
+  else {
     axios
       .get(
         `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=45076dcc27861a55b03542146490a421&text=nature&per_page=10&license=0&format=json&privacy_filter=1&nojsoncallback=1&page=${pagee}`
@@ -39,6 +41,7 @@ function getImage(searchTermm, pagee) {
       .then((response) => {
         setData(prev=>[...prev, ...response.data.photos.photo]);
         //console.log(response.data.photos);
+        active=false
       })
       .catch((error) => {
         console.log("error fetching data", error);
@@ -65,9 +68,10 @@ useEffect(()=>{
     <Search setSearchTerm={setSearchTerm} setData={setData} setPage={setPage}/>
 
       
-      <InfiniteScroll
+      {
+        data.length!==0&&<InfiniteScroll
               dataLength={data.length}
-              next={() => page>=1&&setPage(prev=>prev+1)}
+              next={() => setPage(prev=>prev+1)}
               hasMore={true}
               loader={<Loader/>}
             >
@@ -75,7 +79,7 @@ useEffect(()=>{
               <Gallery data={data} imageUrl={imageUrl} />
               </div>
             </InfiniteScroll>
-   
+   }
        
   </>
   );

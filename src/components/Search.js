@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 
-const Search = ({ setSearchTerm, setData, setPage }) => {
+const Search = ({ setSearchTerm, setData,setPage }) => {
   const [query, setQuery] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSearchTerm(query);
-    setData([]);
     setPage(1)
-    setQuery("");
+    setData([]);
+    setQuery('')
   };
 
   return (
     <>
     <nav className="drop-shadow-lg sticky top-0 z-50 flex items-center flex-wrap justify-between px-20 bg-slate-700 p-6 ">
       <div className="text-white mr-6 flex w-full justify-center mb-6 lg:w-auto lg:flex lg:items-center lg:mb-0 ">
-        <span className="font-semibold text-xl tracking-tight">Image Search</span>
+        <span className="font-semibold text-xl tracking-tight">Find Images</span>
       </div>
 
       <div className="w-full lg:flex lg:items-center lg:w-2/4">
@@ -46,7 +46,7 @@ const Search = ({ setSearchTerm, setData, setPage }) => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               id="default-search"
-              className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-white-600 dark:hover:border-green-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-600 dark:focus:border-green-600"
+              className="block outline-none w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-white-600 dark:hover:border-green-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-600 dark:focus:border-green-600"
               placeholder="Search Images"
               required
             />
