@@ -13,13 +13,13 @@ const Search = ({ setSearchTerm, setData, setPage }) => {
 
   return (
     <>
-    <nav className="sticky top-0 z-50 flex items-center justify-between px-20 bg-teal-500 p-6">
-      <div className="text-white mr-6">
+    <nav className="sticky top-0 z-50 flex items-center flex-wrap justify-between px-20 bg-teal-500 p-6 ">
+      <div className="text-white mr-6 flex w-full justify-center mb-6 lg:w-auto lg:flex lg:items-center lg:mb-0 ">
         <span className="font-semibold text-xl tracking-tight">Image Search</span>
       </div>
 
-      <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-        <form onSubmit={handleSubmit}>
+      <div className="w-full lg:flex lg:items-center lg:w-2/4">
+        <form onSubmit={handleSubmit} className="w-full">
           <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
             Search
           </label>
