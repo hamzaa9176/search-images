@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background: #ecf0f1;
+}
 
 .lds-ellipsis {
     position: relative;

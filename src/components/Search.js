@@ -13,7 +13,7 @@ const Search = ({ setSearchTerm, setData, setPage }) => {
 
   return (
     <>
-    <nav className="sticky top-0 z-50 flex items-center flex-wrap justify-between px-20 bg-teal-500 p-6 ">
+    <nav className="drop-shadow-lg sticky top-0 z-50 flex items-center flex-wrap justify-between px-20 bg-slate-700 p-6 ">
       <div className="text-white mr-6 flex w-full justify-center mb-6 lg:w-auto lg:flex lg:items-center lg:mb-0 ">
         <span className="font-semibold text-xl tracking-tight">Image Search</span>
       </div>
@@ -46,13 +46,13 @@ const Search = ({ setSearchTerm, setData, setPage }) => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               id="default-search"
-              className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-white-600 dark:hover:border-green-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-600 dark:focus:border-green-600"
               placeholder="Search Images"
               required
             />
             <button
               type="submit"
-              className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white absolute right-2.5 bottom-2.5 bg-green-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-600"
             >
               Search
             </button>
