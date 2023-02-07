@@ -7,7 +7,7 @@ const Search = ({ setSearchTerm, setData, setPage }) => {
     e.preventDefault();
     setSearchTerm(query);
     setData([]);
-    setPage(1);
+    setPage(1)
     setQuery("");
   };
 
