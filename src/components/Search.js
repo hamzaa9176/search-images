@@ -13,7 +13,7 @@ const Search = ({ setSearchTerm, setData, setPage }) => {
 
   return (
     <>
-    <nav className="flex items-center justify-between px-20 bg-teal-500 p-6">
+    <nav className="sticky top-0 z-50 flex items-center justify-between px-20 bg-teal-500 p-6">
       <div className="text-white mr-6">
         <span className="font-semibold text-xl tracking-tight">Image Search</span>
       </div>

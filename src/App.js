@@ -70,7 +70,7 @@ useEffect(()=>(
               hasMore={true}
               loader={<Loader/>}
             >
-            <div className="container flex flex-wrap mx-auto mt-20">
+            <div className="container flex flex-wrap mx-auto mt-20 relative">
               <Gallery data={data} imageUrl={imageUrl} />
               </div>
             </InfiniteScroll>
