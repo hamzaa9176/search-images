@@ -40,7 +40,7 @@ function getImage(searchTermm, pagee) {
       )
       .then((response) => {
         setData(prev=>[...prev, ...response.data.photos.photo]);
-        //console.log(response.data.photos);
+        console.log(response.data);
         active=false
       })
       .catch((error) => {
@@ -58,8 +58,9 @@ useEffect(()=>{
 
  
   //Creating url for images from Img state
-  const imageUrl = (serverId, id, secret) => {
-    let urlImage = `https://live.staticflickr.com/${serverId}/${id}_${secret}_w.jpg`;
+  const imageUrl = (farm,serverId, id, secret) => {
+    //let urlImage = `https://live.staticflickr.com/${serverId}/${id}_${secret}_w.jpg`;
+    let urlImage = `http://farm${farm}.staticflickr.com/${serverId}/${id}_${secret}_b.jpg`;
     return urlImage;
   };
 

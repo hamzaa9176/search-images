@@ -5,7 +5,7 @@ const Image = ({imageUrl, item}) => {
   return (
       
     <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
-    src={imageUrl(item.server, item.id, item.secret)}/>
+    src={imageUrl(item.farm, item.server, item.id, item.secret)}/>
     
     )
 }
