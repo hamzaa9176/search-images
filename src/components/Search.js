@@ -56,13 +56,13 @@ const Search = ({ setPage, settingQuery }) => {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 id="default-search"
-                className={"block outline-none w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-white-600 dark:hover:border-green-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-600 dark:focus:border-green-600 "+ (scrollPosition>10?'p-2' : '')}
+                className={"block outline-none w-full p-4 pl-10 text-xs text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-white-600 dark:hover:border-green-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-600 dark:focus:border-green-600 lg:text-sm md:text-sm "+ (scrollPosition>10?'p-2' : '')}
                 placeholder="Search Images"
                 required
               />
               <button
                 type="submit"
-                className={"text-white absolute right-2.5 bottom-2.5 bg-green-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-600 "+ (scrollPosition>10?'p-2' : '')}
+                className={"text-white absolute right-2.5 bottom-2.5 bg-green-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-600 lg:text-sm md:text-sm "+ (scrollPosition>10?'p-2' : '')}
               >
                 Search
               </button>
