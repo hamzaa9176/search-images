@@ -1,12 +1,12 @@
 import Image from "../components/Image";
 
-const Gallery = ({ data, imageUrl }) => {
+const Gallery = ({ data}) => {
   return (
     <>
       {
         data.map((item, index) => (
           <div className="w-full p-2 rounded lg:w-1/3" key={index}>
-          <Image imageUrl={imageUrl} item={item}  />
+          <Image item={item} />
           </div>
         ))
       }

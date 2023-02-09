@@ -11,78 +11,85 @@ function App() {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
 
-  const[searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [loading, setLoading] = useState(false);
 
 
+  function settingQuery(title) {
+    if (searchTerm === title) {
+      setData([])
+      setPage(1)
+      getImage()
+      console.log('same title:', searchTerm, title)
+    } else {
+      setSearchTerm(title)
+      setPage(1)
+      setData([])
+    }
 
- 
-function getImage(searchTermm, pagee) {
-  let active = true;
-  if(searchTermm.length>0&&active){
-  
-    axios
-    .get(
-      `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=45076dcc27861a55b03542146490a421&text=${searchTermm}&per_page=10&license=0&format=json&privacy_filter=1&nojsoncallback=1&page=${pagee}`
-    )
-    .then((response) => {
-      setData(prev=>[...prev, ...response.data.photos.photo]);
-      active = false;
-      //console.log(response.data.photos);
-    })
-    .catch((error) => {
-      console.log("error fetching data", error);
-    });
-   }
-  else {
+  }
+
+  function getImage() {
+    let active = true;
+    setLoading(true)
+
     axios
       .get(
-        `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=45076dcc27861a55b03542146490a421&text=nature&per_page=10&license=0&format=json&privacy_filter=1&nojsoncallback=1&page=${pagee}`
+        `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=45076dcc27861a55b03542146490a421&per_page=10&text=${searchTerm === '' ? 'nature' : searchTerm}&license=0&format=json&privacy_filter=1&nojsoncallback=1&page=${page}`
       )
       .then((response) => {
-        setData(prev=>[...prev, ...response.data.photos.photo]);
-        console.log(response.data);
-        active=false
+        if (active) {
+          if (page > 1) {
+            setData(prev => [...prev, ...response.data.photos.photo]);
+            //setLoading(false)
+          } else {
+            setData(response.data.photos.photo);
+            //setLoading(false)
+          }
+          //console.log(response.data);
+          active = false;
+        }
       })
       .catch((error) => {
         console.log("error fetching data", error);
       });
-    }
-    
-}
 
-useEffect(()=>{
-  
- getImage(searchTerm, page);
 
-},[searchTerm, page])
 
- 
-  //Creating url for images from Img state
-  const imageUrl = (farm,serverId, id, secret) => {
-    //let urlImage = `https://live.staticflickr.com/${serverId}/${id}_${secret}_w.jpg`;
-    let urlImage = `http://farm${farm}.staticflickr.com/${serverId}/${id}_${secret}_b.jpg`;
-    return urlImage;
-  };
+    return () => active = false
+
+  }
+
+  useEffect(() => {
+
+    getImage();
+
+  }, [page, searchTerm])
 
   return (
     <>
-    <Search setSearchTerm={setSearchTerm} setData={setData} setPage={setPage}/>
 
-      
+
+      <Search settingQuery={settingQuery} setPage={setPage} />
+
       {
-        data.length!==0&&<InfiniteScroll
-              dataLength={data.length}
-              next={() => setPage(prev=>prev+1)}
-              hasMore={true}
-              loader={<Loader/>}
-            >
-            <div className="container flex flex-wrap mx-auto mt-20 relative">
-              <Gallery data={data} imageUrl={imageUrl} />
-              </div>
-            </InfiniteScroll>
-   }
-       
-  </>
+
+        data.length === 0 && !loading ? <h1>No image found </h1> : (data.length !== 0 && <InfiniteScroll
+          dataLength={data.length}
+          next={() => setPage(prev => prev + 1)}
+          hasMore={true}
+          loader={<Loader />}
+        >
+          <div className="container flex flex-wrap mx-auto mt-20 relative">
+            <Gallery data={data} />
+          </div>
+        </InfiniteScroll>)
+
+
+
+      }
+
+    </>
   );
 }
 
