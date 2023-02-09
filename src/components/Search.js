@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-const Search = ({ setPage, settingQuery }) => {
+const Search = ({searchTerm , settingQuery }) => {
   const [query, setQuery] = useState("");
-
   const [scrollPosition, setScrollPosition] = useState(0);
+
+  let searchWord = searchTerm;
  
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -70,6 +71,9 @@ const Search = ({ setPage, settingQuery }) => {
           </form>
         </div>
       </nav>
+      <div className=" bg-slate-400 flex justify-center p-2">
+        <h1 className="text-base text-white font-medium lg:text-sm md:text-sm">Result For: <span className="text-slate-900 uppercase">{searchWord}</span></h1>
+      </div>
     </>
   );
 

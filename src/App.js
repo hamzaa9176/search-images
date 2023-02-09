@@ -72,7 +72,7 @@ function App() {
     <>
 
 
-      <Search settingQuery={settingQuery} setPage={setPage} />
+      <Search settingQuery={settingQuery} searchTerm={searchTerm} />
 
       {
 
