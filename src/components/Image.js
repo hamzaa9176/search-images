@@ -10,7 +10,7 @@ const Image = ({item}) => {
   };
   return (
       
-    <img alt="gallery" className="object-cover object-center w-full  rounded-lg h-screen lg:h-full sm:h-full md:h-full"
+    <img alt="gallery" className="object-cover object-center w-full  rounded-lg min-h-screen lg:h-full sm:h-full md:h-full"
     src={imageUrl(item.farm, item.server, item.id, item.secret)}/>
     
     )

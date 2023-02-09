@@ -14,7 +14,6 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(false);
 
-
   function settingQuery(title) {
     if (searchTerm === title) {
       setData([])
@@ -66,6 +65,9 @@ function App() {
 
   }, [page, searchTerm])
 
+
+
+
   return (
     <>
 
@@ -80,7 +82,7 @@ function App() {
           hasMore={true}
           loader={<Loader />}
         >
-          <div className="container flex flex-wrap mx-auto mt-20 relative">
+          <div className="container flex flex-wrap mx-auto mt-5 relative lg:mt-10 md:mt-10">
             <Gallery data={data} />
           </div>
         </InfiniteScroll>)

@@ -1,17 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Search = ({ setPage, settingQuery }) => {
   const [query, setQuery] = useState("");
 
+  const [scrollPosition, setScrollPosition] = useState(0);
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     settingQuery(query);
     setQuery('')
   };
 
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+
   return (
     <>
-      <nav className="drop-shadow-lg sticky top-0 z-50 flex items-center flex-wrap justify-between px-20 bg-slate-700 p-6 ">
+      <nav className={"drop-shadow-lg sticky top-0 z-50 flex items-center flex-wrap justify-between px-20 bg-slate-700 p-6 transition-all ease--out duration-500 " + (scrollPosition>10?'opacity-0' : 'opacity-100')}>
         <div className="text-white mr-6 flex w-full justify-center mb-6 lg:w-auto lg:flex lg:items-center lg:mb-0 ">
           <span className="font-semibold text-xl tracking-tight">Find Images</span>
         </div>
