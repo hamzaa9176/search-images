@@ -82,7 +82,7 @@ function App() {
           hasMore={true}
           loader={<Loader />}
         >
-          <div className="container flex flex-wrap mx-auto mt-5 relative lg:mt-10 md:mt-10">
+          <div className="container flex flex-wrap mx-auto mt-5 relative lg:mt-10 md:mt-10 scroll-smooth">
             <Gallery data={data} />
           </div>
         </InfiniteScroll>)
