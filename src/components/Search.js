@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Search = ({searchTerm , settingQuery }) => {
+const Search = ({searchTerm , settingQuery, data }) => {
   const [query, setQuery] = useState("");
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -71,9 +71,9 @@ const Search = ({searchTerm , settingQuery }) => {
           </form>
         </div>
       </nav>
-      {searchWord&&<div className=" bg-slate-400 flex justify-center p-2">
+      {searchWord&&data.length!==0?<div className=" bg-slate-400 flex justify-center p-2">
         <h1 className="text-base text-white font-medium lg:text-sm md:text-sm">Result For: <span className="text-slate-900 uppercase">{searchWord}</span></h1>
-      </div>
+      </div>: ''
       }
     </>
   );

@@ -5,7 +5,7 @@ import Gallery from "./components/Gallery";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Search from "./components/Search";
 import Loader from './components/Loader'
-
+import NoImage from './components/NoImage'
 
 function App() {
   const [data, setData] = useState([]);
@@ -40,10 +40,10 @@ function App() {
         if (active) {
           if (page > 1) {
             setData(prev => [...prev, ...response.data.photos.photo]);
-            //setLoading(false)
+            setLoading(false)
           } else {
             setData(response.data.photos.photo);
-            //setLoading(false)
+            setLoading(false)
           }
           //console.log(response.data);
           active = false;
@@ -51,6 +51,7 @@ function App() {
       })
       .catch((error) => {
         console.log("error fetching data", error);
+        setLoading(false)
       });
 
 
@@ -72,11 +73,10 @@ function App() {
     <>
 
 
-      <Search settingQuery={settingQuery} searchTerm={searchTerm} />
-
+      <Search settingQuery={settingQuery} searchTerm={searchTerm} data={data}/>
       {
 
-        data.length === 0 && !loading ? <h1>No image found </h1> : (data.length !== 0 && <InfiniteScroll
+        data.length === 0 && !loading ? <NoImage word={searchTerm}/> : (data.length !== 0 && <InfiniteScroll
           dataLength={data.length}
           next={() => setPage(prev => prev + 1)}
           hasMore={true}
@@ -90,6 +90,7 @@ function App() {
 
 
       }
+      
 
     </>
   );
