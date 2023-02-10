@@ -27,12 +27,12 @@ const Search = ({searchTerm , settingQuery, data }) => {
 
   return (
     <>
-      <nav className={"drop-shadow-lg sticky top-0 z-50 flex items-center flex-wrap justify-between px-20 bg-slate-700 p-6 xl:py-4 transition-all ease-out duration-300 " + (scrollPosition>10?' pt-2 h-30 px-5' : '')}>
+      <nav className={"drop-shadow-lg sticky top-0 z-50 flex items-center flex-wrap justify-between px-10 bg-slate-700 p-6 xl:py-4 transition-all ease-out duration-300 " + (scrollPosition>10?' pt-2 h-30 px-5' : '')}>
         <div className={"text-white mr-6 flex w-full justify-center mb-6 lg:w-auto lg:flex lg:items-center lg:mb-0 "+ (scrollPosition>10?'hidden' : 'visibile')}>
           <span className="font-semibold text-xl tracking-tight">Find Images</span>
         </div>
 
-        <div className={"w-full xl:w-2/4 lg:flex lg:items-center lg:w-2/4" + (scrollPosition>10?'p-0 h-10' : '')}>
+        <div className={"w-full xl:w-2/4 lg:flex lg:items-center lg:w-2/4 " + (scrollPosition>10?'p-0 h-10' : '')}>
           <form onSubmit={handleSubmit} className="w-full">
             <div className="relative">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
