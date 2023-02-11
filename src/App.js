@@ -76,7 +76,7 @@ function App() {
       <Search settingQuery={settingQuery} searchTerm={searchTerm} data={data}/>
       {
 
-         !loading&&data.length === 0 ? <NoImage word={searchTerm}/> : (data.length !== 0 && <InfiniteScroll
+         !loading&&data.length === 0 ? <NoImage word={searchTerm}/> : ( <InfiniteScroll
           dataLength={data.length}
           next={() => setPage(prev => prev + 1)}
           hasMore={true}
