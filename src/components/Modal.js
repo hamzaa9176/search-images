@@ -17,7 +17,7 @@ const Modal = ({state, onClose, data, setCounter, indexImage}) => {
                 <button className="close ml-2" onClick={()=>{onClose(false); setCounter(0)}}><FaWindowClose/></button>
             </div>
             <div className="main-content ">
-                <img alt="modal" src={data} className="w-screen h-max block"/>
+                <img alt="modal" src={data} className="w-screen h-min block"/>
             </div>
             
         </div>
