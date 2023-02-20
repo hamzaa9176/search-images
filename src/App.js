@@ -7,12 +7,17 @@ import Search from "./components/Search";
 import Loader from './components/Loader'
 import NoImage from './components/NoImage'
 
+
+
 function App() {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
 
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(false);
+
+
+
 
   function settingQuery(title) {
     if (searchTerm === title) {
@@ -59,7 +64,7 @@ function App() {
     return () => active = false
 
   }
-
+  // eslint-disable-next-line
   useEffect(() => {
 
     getImage();
@@ -68,29 +73,31 @@ function App() {
 
 
 
-
   return (
     <>
 
 
-      <Search settingQuery={settingQuery} searchTerm={searchTerm} data={data}/>
+      <Search settingQuery={settingQuery} searchTerm={searchTerm} data={data} />
+
       {
 
-         !loading&&data.length === 0 ? <NoImage word={searchTerm}/> : ( <InfiniteScroll
+        !loading && data.length === 0 ? <NoImage word={searchTerm} /> : (<InfiniteScroll
           dataLength={data.length}
           next={() => setPage(prev => prev + 1)}
           hasMore={true}
           loader={<Loader />}
         >
           <div className="container flex flex-wrap mx-auto mt-5 relative lg:mt-10 md:mt-10 scroll-smooth">
-            <Gallery data={data} />
+            <Gallery data={data} setPage={setPage} getImage={getImage}/>
           </div>
         </InfiniteScroll>)
 
 
 
       }
-      
+
+
+
 
     </>
   );

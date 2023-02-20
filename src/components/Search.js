@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Search = ({searchTerm , settingQuery, data }) => {
+const Search = ({searchTerm , settingQuery }) => {
   const [query, setQuery] = useState("");
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -27,12 +27,12 @@ const Search = ({searchTerm , settingQuery, data }) => {
 
   return (
     <>
-      <nav className={"drop-shadow-lg sticky top-0 z-50 flex items-center flex-wrap justify-between bg-slate-700 p-6 xl:py-4 transition-all ease-out duration-300 " + (scrollPosition>10?' pt-2 h-30 px-5' : '')}>
+      <nav className={"drop-shadow-lg sticky top-0 z-10 flex items-center flex-wrap justify-between px-20 bg-slate-700 p-6 transition-all ease-out duration-300 " + (scrollPosition>10?' pt-2 h-30 px-5' : '')}>
         <div className={"text-white mr-6 flex w-full justify-center mb-6 lg:w-auto lg:flex lg:items-center lg:mb-0 "+ (scrollPosition>10?'hidden' : 'visibile')}>
           <span className="font-semibold text-xl tracking-tight">Find Images</span>
         </div>
 
-        <div className={"w-full xl:w-2/4 lg:flex lg:items-center lg:w-2/4 " + (scrollPosition>10?'p-0 h-10' : '')}>
+        <div className={"w-full lg:flex lg:items-center lg:w-2/4" + (scrollPosition>10?'p-0 h-10' : '')}>
           <form onSubmit={handleSubmit} className="w-full">
             <div className="relative">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -71,10 +71,9 @@ const Search = ({searchTerm , settingQuery, data }) => {
           </form>
         </div>
       </nav>
-      {searchWord&&data.length!==0?<div className=" bg-slate-400 flex justify-center p-2">
+      <div className=" bg-slate-400 flex justify-center p-2">
         <h1 className="text-base text-white font-medium lg:text-sm md:text-sm">Result For: <span className="text-slate-900 uppercase">{searchWord}</span></h1>
-      </div>: ''
-      }
+      </div>
     </>
   );
 
