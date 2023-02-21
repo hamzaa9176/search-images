@@ -7,7 +7,7 @@ const [count, setCount] = useState(counter);
         
       state&&(
         <>
-      <div className="modal w-screen h-screen fixed top-0 left-0 m-auto bg-black bg-opacity-90">
+      <div className="modal z-50 w-screen h-screen fixed top-0 left-0 m-auto bg-black bg-opacity-90">
         <div className="modal-content flex flex-col relative justify-center items-center" onClick={(e)=>e.stopPropagation()}>
         
             <div className="modal-footer w-full flex flex-row justify-around p-2 text-white  text-3xl">
