@@ -16,7 +16,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const[modalStateApp, setModalStateApp] = useState(null);
+  const[modalStateApp, setModalStateApp] = useState(false);
 
 
   function settingQuery(title) {
@@ -77,7 +77,7 @@ useEffect(() => {
   return (
     <>
 
-
+{console.log(modalStateApp)}
       <Search settingQuery={settingQuery} searchTerm={searchTerm} data={data} />
       {
 
