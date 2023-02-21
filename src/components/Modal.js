@@ -15,7 +15,7 @@ const [count, setCount] = useState(counter);
             <button className='fixed top-2/4 right-0 bg-slate-600 p-2' onClick={()=>{setCounter(indexImage=>indexImage+1);setCount(prev=>prev+1);if(count===dataa.length-5){updatePage()}}}><FaForward/></button>
                 <button className="fixed right-0 close ml-2 bg-slate-600 p-2" onClick={()=>{onClose(false); setCounter(0); setCount(0)}}><FaWindowClose/></button>
             </div>
-            <div className="main-content h-screen">
+            <div className="main-content h-fit">
                 <img alt="modal" src={data} className="w-screen h-fit block"/>
             </div>
             
