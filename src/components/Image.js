@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import {  useState } from 'react'
 import '../App.css'
 import Modal from './Modal'
@@ -10,7 +11,9 @@ const Image = ({ item, indexImage, dataa, updatePage}) => {
   
 
   //prevetning body from scrolling while modal is open
-  modalState?(document.body.style.overflow = 'hidden'):(document.body.style.overflow = 'unset')
+
+    modalState?(document.body.style.overflow = 'hidden'):(document.body.style.overflow = 'unset')
+
   //Creating url for images from Img state
   const imageUrl = (farm, serverId, id, secret) => {
     //let urlImage = `https://live.staticflickr.com/${serverId}/${id}_${secret}_w.jpg`;
