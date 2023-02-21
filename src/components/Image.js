@@ -1,12 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../App.css'
 import Modal from './Modal'
 
-const Image = ({ item, indexImage, dataa, updatePage}) => {
+
+const Image = ({ item, indexImage, dataa, updatePage, setModalStateApp}) => {
 
   const [modalState, setModalState] = useState(false);
   const [counter, setCounter] = useState(indexImage);
-
+  
+  useEffect(()=>(
+    setModalStateApp(modalState)
+  ),[modalState, setModalStateApp])
   //prevetning body from scrolling while modal is open
   modalState?(document.body.style.overflow = 'hidden'):(document.body.style.overflow = 'unset')
   //Creating url for images from Img state
@@ -17,6 +21,7 @@ const Image = ({ item, indexImage, dataa, updatePage}) => {
   };
   return (
     <>
+    
       <Modal onClose={setModalState}  dataa={dataa} counter={counter} updatePage={updatePage}  setCounter={setCounter} indexImage={indexImage} state={modalState} data={imageUrl(dataa[counter].farm, dataa[counter].server, dataa[counter].id, dataa[counter].secret)} />
 
       <img alt='ciao' onClick={() => setModalState(true)} className="block object-cover object-center w-full h-screen rounded-lg lg:h-full md:h-fit sm:w-full md:w-full"

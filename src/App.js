@@ -16,7 +16,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(false);
 
-
+  const[modalStateApp, setModalStateApp] = useState(false);
 
 
   function settingQuery(title) {
@@ -80,7 +80,6 @@ useEffect(() => {
 
 
       <Search settingQuery={settingQuery} searchTerm={searchTerm} data={data} />
-
       {
 
         !loading && data.length === 0 ? <NoImage word={searchTerm} /> : (<InfiniteScroll
@@ -89,8 +88,8 @@ useEffect(() => {
           hasMore={true}
           loader={<Loader />}
         >
-          <div className="container flex flex-wrap mx-auto mt-5 relative lg:mt-10 md:mt-10 scroll-smooth">
-            <Gallery data={data} updatePage={updatePage} />
+          <div className={`container flex ${modalStateApp?'z-50':'z-30'} flex-wrap mx-auto mt-5 relative lg:mt-10 md:mt-10 scroll-smooth`}>
+            <Gallery data={data} updatePage={updatePage} setModalStateApp={setModalStateApp}/>
           </div>
         </InfiniteScroll>)
 
