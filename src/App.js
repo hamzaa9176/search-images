@@ -64,8 +64,8 @@ function App() {
     return () => active = false
 
   }
-  // eslint-disable-next-line
-  useEffect(() => {
+// eslint-disable-next-line
+useEffect(() => {
 
     getImage();
 
