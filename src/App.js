@@ -78,7 +78,7 @@ useEffect(() => {
     <>
 
 
-      <Search settingQuery={settingQuery} searchTerm={searchTerm} data={data} modalStateApp={modalStateApp}/>
+      <Search settingQuery={settingQuery} searchTerm={searchTerm} data={data} />
       {
 
         !loading && data.length === 0 ? <NoImage word={searchTerm} /> : (<InfiniteScroll
