@@ -16,7 +16,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const[modalStateApp, setModalStateApp] = useState(false);
+  const[modalStateApp, setModalStateApp] = useState(null);
 
 
   function settingQuery(title) {
