@@ -7,7 +7,7 @@ const Modal = ({ state, onClose, data, setCounter, indexImage, counter, updatePa
 
     state && (
       <>
-        <div className="modal z-50 w-screen h-screen fixed top-0 left-0 m-auto bg-black bg-opacity-90">
+        <div className={(state?'z-50':'z-0')+" modal w-screen h-screen fixed top-0 left-0 m-auto bg-black bg-opacity-90"}>
           <div className="modal-content flex h-screen relative justify-center items-center" onClick={(e) => e.stopPropagation()}>
 
 

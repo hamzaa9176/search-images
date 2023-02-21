@@ -28,7 +28,7 @@ const Search = ({ searchTerm, settingQuery, modalStateApp }) => {
     <>
       <nav
         className={
-         (modalStateApp?'z-10':'z-50') + " drop-shadow-lg sticky top-0 flex items-center flex-wrap justify-between px-20 bg-slate-700 p-6 transition-all ease-out duration-300 " +
+         (!modalStateApp?'z-50':'z-10') + " drop-shadow-lg sticky top-0 flex items-center flex-wrap justify-between px-20 bg-slate-700 p-6 transition-all ease-out duration-300 " +
           (scrollPosition > 10 ? " pt-2 h-30 px-5" : "")
         }
       >
