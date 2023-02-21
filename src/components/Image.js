@@ -4,16 +4,27 @@ import '../App.css'
 import Modal from './Modal'
 
 
-const Image = ({ item, indexImage, dataa, updatePage}) => {
+const Image = ({ item, indexImage, dataa, updatePage, getModalState}) => {
 
   const [modalState, setModalState] = useState(false);
   const [counter, setCounter] = useState(indexImage);
-  
+    
 
-  //prevetning body from scrolling while modal is open
 
+  useEffect(()=>(
+    //prevetning body from scrolling while modal is open
+    updateBody()
+    // eslint-disable-next-line
+  ),[modalState])
+
+  useEffect(()=>(
+    getModalState(modalState)
+    // eslint-disable-next-line
+  ),[modalState])
+  const updateBody = ()=>{
     modalState?(document.body.style.overflow = 'hidden'):(document.body.style.overflow = 'unset')
-
+  
+  }
   //Creating url for images from Img state
   const imageUrl = (farm, serverId, id, secret) => {
     //let urlImage = `https://live.staticflickr.com/${serverId}/${id}_${secret}_w.jpg`;

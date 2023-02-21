@@ -74,9 +74,13 @@ useEffect(() => {
   const updatePage = ()=>{
     setPage(prev => prev + 1)
   }
+
+  const getModalState = (state)=>{
+    setModalStateApp(state)
+  }
+
   return (
     <>
-
       <Search settingQuery={settingQuery} searchTerm={searchTerm} data={data} modalStateApp={modalStateApp}/>
       {
 
@@ -87,7 +91,7 @@ useEffect(() => {
           loader={<Loader />}
         >
           <div className={"container z-40 flex flex-wrap mx-auto mt-5 relative lg:mt-10 md:mt-10 scroll-smooth "}>
-            <Gallery data={data} updatePage={updatePage} setModalStateApp={setModalStateApp}/>
+            <Gallery data={data} updatePage={updatePage} getModalState={getModalState}/>
           </div>
         </InfiniteScroll>)
 
