@@ -94,7 +94,7 @@ const Search = ({ searchTerm, settingQuery, modalStateApp }) => {
         </div>
       </nav>}
 
-      <div className=" bg-slate-400 flex justify-center p-2">
+      {!modalStateApp&&<div className=" bg-slate-400 flex justify-center p-2">
         {searchTerm ? (
           <h1 className="text-base text-white font-medium lg:text-sm md:text-sm">
             Result For:{" "}
@@ -105,7 +105,7 @@ const Search = ({ searchTerm, settingQuery, modalStateApp }) => {
             <span className="text-slate-900 uppercase">Random Photos</span>
           </h1>
         )}
-      </div>
+      </div>}
     </>
   );
 };
