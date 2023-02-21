@@ -87,7 +87,7 @@ useEffect(() => {
           hasMore={true}
           loader={<Loader />}
         >
-          <div className={"container flex flex-wrap mx-auto mt-5 relative lg:mt-10 md:mt-10 scroll-smooth " + (modalStateApp?'z-50':'z-30')}>
+          <div className={(modalStateApp===true?'z-50':'z-20') + " container flex flex-wrap mx-auto mt-5 relative lg:mt-10 md:mt-10 scroll-smooth " }>
             <Gallery data={data} updatePage={updatePage} setModalStateApp={setModalStateApp}/>
           </div>
         </InfiniteScroll>)

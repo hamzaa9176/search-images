@@ -27,7 +27,7 @@ const Search = ({searchTerm , settingQuery }) => {
 
   return (
     <>
-      <nav className={"drop-shadow-lg z-40 sticky top-0 flex items-center flex-wrap justify-between px-20 bg-slate-700 p-6 transition-all ease-out duration-300 " + (scrollPosition>10?' pt-2 h-30 px-5' : '')}>
+      <nav className={"drop-shadow-lg z-30 sticky top-0 flex items-center flex-wrap justify-between px-20 bg-slate-700 p-6 transition-all ease-out duration-300 " + (scrollPosition>10?' pt-2 h-30 px-5' : '')}>
         <div className={"text-white mr-6 flex w-full justify-center mb-6 lg:w-auto lg:flex lg:items-center lg:mb-0 "+ (scrollPosition>10?'hidden' : 'visibile')}>
           <span className="font-semibold text-xl tracking-tight">Find Images</span>
         </div>
