@@ -72,7 +72,9 @@ function App() {
   }, [page, searchTerm])
 
 
-
+  const updatePage = ()=>{
+    setPage(prev => prev + 1)
+  }
   return (
     <>
 
@@ -88,7 +90,7 @@ function App() {
           loader={<Loader />}
         >
           <div className="container flex flex-wrap mx-auto mt-5 relative lg:mt-10 md:mt-10 scroll-smooth">
-            <Gallery data={data} setPage={setPage} getImage={getImage}/>
+            <Gallery data={data} updatePage={updatePage} />
           </div>
         </InfiniteScroll>)
 

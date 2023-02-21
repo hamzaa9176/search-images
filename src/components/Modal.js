@@ -1,23 +1,22 @@
-import React from 'react'
+import { useState } from 'react';
 import { FaBackward, FaForward, FaWindowClose } from 'react-icons/fa';
 
-const Modal = ({state, onClose, data, setCounter, indexImage}) => {
-
+const Modal = ({state, onClose, data, setCounter, indexImage, counter, updatePage, dataa}) => {
+const [count, setCount] = useState(counter);
   return (
         
       state&&(
         <>
-         
-      <div className="modal w-screen h-screen fixed top-0 left-0 m-auto bg-black z-50 bg-opacity-60">
-        <div className="modal-content flex flex-col justify-center items-center" onClick={(e)=>e.stopPropagation()}>
+      <div className="modal w-screen h-screen fixed top-0 left-0 m-auto bg-black z-50 bg-opacity-90">
+        <div className="modal-content flex flex-col relative justify-center items-center" onClick={(e)=>e.stopPropagation()}>
         
-            <div className="modal-footer w-full flex flex-row justify-center p-2 text-white font-medium">
-            {<button onClick={()=>{setCounter(indexImage=>indexImage-1);}}><FaBackward/></button>}
-            <button className='ml-3' onClick={()=>{setCounter(indexImage=>indexImage+1);}}><FaForward/></button>
-                <button className="close ml-2" onClick={()=>{onClose(false); setCounter(0)}}><FaWindowClose/></button>
+            <div className="modal-footer w-full flex flex-row justify-around p-2 text-white  text-3xl">
+            {count>1?<button className="fixed top-2/4 left-0 bg-slate-600 p-2" onClick={()=>{setCounter(indexImage=>indexImage-1); }}><FaBackward/></button>:''}
+            <button className='fixed top-2/4 right-0 bg-slate-600 p-2' onClick={()=>{setCounter(indexImage=>indexImage+1);setCount(prev=>prev+1);if(count===dataa.length-5){updatePage()}}}><FaForward/></button>
+                <button className="fixed right-0 close ml-2 bg-slate-600 p-2" onClick={()=>{onClose(false); setCounter(0); setCount(0)}}><FaWindowClose/></button>
             </div>
-            <div className="main-content ">
-                <img alt="modal" src={data} className="w-screen h-min block"/>
+            <div className="main-content h-screen">
+                <img alt="modal" src={data} className="w-screen h-fit block"/>
             </div>
             
         </div>

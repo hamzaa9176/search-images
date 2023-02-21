@@ -1,8 +1,8 @@
-import {  useEffect, useState } from 'react'
+import { useState } from 'react'
 import '../App.css'
 import Modal from './Modal'
 
-const Image = ({ item, indexImage, dataa}) => {
+const Image = ({ item, indexImage, dataa, updatePage}) => {
 
   const [modalState, setModalState] = useState(false);
   const [counter, setCounter] = useState(indexImage);
@@ -17,8 +17,7 @@ const Image = ({ item, indexImage, dataa}) => {
   };
   return (
     <>
-    
-      <Modal onClose={setModalState}  setCounter={setCounter} indexImage={indexImage} state={modalState} data={imageUrl(dataa[counter].farm, dataa[counter].server, dataa[counter].id, dataa[counter].secret)} />
+      <Modal onClose={setModalState}  dataa={dataa} counter={counter} updatePage={updatePage}  setCounter={setCounter} indexImage={indexImage} state={modalState} data={imageUrl(dataa[counter].farm, dataa[counter].server, dataa[counter].id, dataa[counter].secret)} />
 
       <img alt='ciao' onClick={() => setModalState(true)} className="block object-cover object-center w-full h-screen rounded-lg lg:h-full md:h-fit sm:w-full md:w-full"
         src={imageUrl(item.farm, item.server, item.id, item.secret)} />
