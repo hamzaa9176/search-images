@@ -16,7 +16,7 @@ const [count, setCount] = useState(counter);
                 <button className="fixed right-0 close rounded-3xl bg-slate-600 p-2" onClick={()=>{onClose(false); setCounter(0); setCount(0)}}><FaWindowClose/></button>
             </div>
             <div className="main-content min-w-fit min-h-fit">
-                <img alt="modal" src={data} className=" w-min min-h-fit block"/>
+                <img alt="modal" src={data} className=" max-w-screen block"/>
             </div>
             
         </div>
