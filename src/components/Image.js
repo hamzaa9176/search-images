@@ -7,17 +7,13 @@ const Image = ({ item, indexImage, dataa, updatePage, getModalState }) => {
   const [modalState, setModalState] = useState(false);
   const [counter, setCounter] = useState(indexImage);
 
-  const updateBody = () => {
-    modalState
-      ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "auto");
-  };
   useEffect(() => {
-    //prevetning body from scrolling while modal is open
-    updateBody();
-
-    // eslint-disable-next-line
-  }, [modalState]);
+    if (modalState) {
+      document.body.style.overflow = 'hidden'
+    }else {
+      document.body.style.overflow = 'scroll'
+    }
+  }, [modalState])
 
   useEffect(
     () =>
@@ -53,7 +49,7 @@ const Image = ({ item, indexImage, dataa, updatePage, getModalState }) => {
       <img
         alt="ciao"
         onClick={() => setModalState(true)}
-        className="block object-cover object-center w-full h-screen rounded-lg lg:h-full md:h-fit sm:w-full md:w-full"
+        className="block relative object-cover object-center w-full h-screen rounded-lg lg:h-full md:h-fit sm:w-full md:w-full"
         src={imageUrl(item.farm, item.server, item.id, item.secret)}
       />
     </>

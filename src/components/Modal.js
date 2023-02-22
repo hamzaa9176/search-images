@@ -18,7 +18,7 @@ const Modal = ({
         <div
           className={
             (state ? "z-50" : "z-0") +
-            " modal w-screen h-screen fixed top-0 left-0 m-auto bg-black bg-opacity-90"
+            " modal w-screen h-screen fixed top-0 left-0 m-auto bg-black bg-opacity-60"
           }
         >
           <div

@@ -31,13 +31,13 @@ const Search = ({ searchTerm, settingQuery, modalStateApp }) => {
           className={
             (!modalStateApp ? "z-50" : "z-0") +
             " drop-shadow-lg sticky top-0 flex items-center flex-wrap justify-between px-20 bg-slate-700 p-6 transition-all ease-out duration-300 " +
-            (scrollPosition > 10 ? "pt-2 lg:py-3 h-30 px-5" : "")
+            (scrollPosition > 20 ? "pt-2 lg:py-3 h-30 px-5" : "")
           }
         >
           <div
             className={
               "text-white mr-6 flex w-full justify-center mb-6 lg:w-auto  " +
-              (scrollPosition > 10 ? " hidden text-red-200 " : " lg:flex lg:items-center lg:mb-0")
+              (scrollPosition > 20 ? " hidden text-red-200 " : " lg:flex lg:items-center lg:mb-0")
             }
           >
             <span className="font-semibold text-xl tracking-tight">
@@ -48,7 +48,7 @@ const Search = ({ searchTerm, settingQuery, modalStateApp }) => {
           <div
             className={
               "w-full lg:flex lg:items-center lg:w-2/4" +
-              (scrollPosition > 10 ? "p-0 h-10 lg:w-1/4 m-auto" : "")
+              (scrollPosition > 20 ? "p-0 h-10 lg:w-1/4 m-auto" : "")
             }
           >
             <form onSubmit={handleSubmit} className="w-full">
@@ -97,7 +97,7 @@ const Search = ({ searchTerm, settingQuery, modalStateApp }) => {
         </nav>
       }
 
-      {!modalStateApp && (
+      {(
         <div className=" bg-slate-400 flex justify-center p-2">
           {searchTerm ? (
             <h1 className="text-base text-white font-medium lg:text-sm md:text-sm">

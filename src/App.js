@@ -7,6 +7,8 @@ import Search from "./components/Search";
 import Loader from "./components/Loader";
 import NoImage from "./components/NoImage";
 
+
+
 function App() {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
@@ -14,8 +16,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const [modalStateApp, setModalStateApp] = useState(null);
-
+  const [modalStateApp, setModalStateApp] = useState(false);
   function settingQuery(title) {
     if (searchTerm === title) {
       setData([]);
@@ -81,6 +82,7 @@ function App() {
         data={data}
         modalStateApp={modalStateApp}
       />
+
       {!loading && data.length === 0 ? (
         <NoImage word={searchTerm} />
       ) : (
@@ -92,7 +94,7 @@ function App() {
         >
           <div
             className={
-              "container z-40 flex flex-wrap mx-auto mt-5 relative lg:mt-10 md:mt-10 scroll-smooth "
+              "container z-40  flex flex-wrap mx-auto mt-5 lg:mt-10 md:mt-10 scroll-smooth "
             }
           >
             <Gallery
