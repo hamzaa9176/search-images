@@ -22,7 +22,7 @@ const Modal = ({
           }
         >
           <div
-            className="modal-content flex h-screen relative justify-center items-center"
+            className="modal-content flex h-screen justify-center items-center"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="main-content min-w-fit min-h-fit">

@@ -94,7 +94,7 @@ function App() {
         >
           <div
             className={
-              "container z-40 absolute flex flex-wrap mx-auto mt-5 lg:mt-10 md:mt-10 scroll-smooth "
+              "container z-40 flex flex-wrap mx-auto mt-5 lg:mt-10 md:mt-10 scroll-smooth "
             }
           >
             <Gallery
